@@ -8,4 +8,7 @@
 * https://www.toptal.com/developers/gitignore   [search django]
 
 [3] python manage.py runserver 
+--------------------------------- modules -----------------------------
+[4] python manage.py startapp pages
+
 ````
