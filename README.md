@@ -7,4 +7,5 @@
 [2]  django-admin startproject [nameproject] .
 * https://www.toptal.com/developers/gitignore   [search django]
 
+[3] python manage.py runserver 
 ````
