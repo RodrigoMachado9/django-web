@@ -1,4 +1,4 @@
-# django
+# in construction... 
 
 ````
     pip install psycopg2-binary | psycopg2
