@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
 
+
 # Create your models here.
 
 class Listing(models.Model):
