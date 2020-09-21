@@ -11,11 +11,9 @@ def index(request):
     #     'name': 'Machado'
     # })
 
-    # listings = Listing.objects.all()        # result data's in postgresql
 
-    # listings = Listing.objects.order_by('-list_date')       # result data's in postgresql orderby
-
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)       # result data's in postgresql with fiter
+    # listings = paginator_order_by('-list_date')     # fixme :)
+    listings = paginator_order_by_with_filter('-list_date', is_published=True)  # fixme :)
 
     # added paginator...
     paginator = Paginator(listings, 2)
@@ -36,3 +34,17 @@ def listing(request, listing_id):
 
 def search(request):
     return render(request, 'listings/search.html')
+
+
+### paginator -  filters
+
+
+def paginator_order_by(order: str):
+    # result data's in postgresql
+    return Listing.objects.order_by(order)
+
+
+def paginator_order_by_with_filter(order: str, **kwargs):
+    # result data's in postgresql with fiter
+    data = Listing.objects.order_by(order).filter(**kwargs)
+    return data
