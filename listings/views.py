@@ -10,7 +10,12 @@ def index(request):
     # return render(request, 'listings/listings.jinja2', {
     #     'name': 'Machado'
     # })
-    listings = Listing.objects.all()        # result data's in postgresql
+
+    # listings = Listing.objects.all()        # result data's in postgresql
+
+    # listings = Listing.objects.order_by('-list_date')       # result data's in postgresql orderby
+
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)       # result data's in postgresql with fiter
 
     # added paginator...
     paginator = Paginator(listings, 2)
