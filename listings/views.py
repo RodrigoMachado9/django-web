@@ -17,6 +17,7 @@ def index(request):
 
 
 def listing(request, listing_id):
+    print(listing_id)
     return render(request, 'listings/listing.html')
 
 
