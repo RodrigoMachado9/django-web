@@ -44,7 +44,7 @@ def paginator_order_by(order: str):
     return Listing.objects.order_by(order)
 
 
-def paginator_order_by_with_filter(order: str, **kwargs):
-    # result data's in postgresql with fiter
-    data = Listing.objects.order_by(order).filter(**kwargs)
+def paginator_order_by_with_filter(order: str, **filters):
+    # result data's in postgresql with filter
+    data = Listing.objects.order_by(order).filter(**filters)
     return data
