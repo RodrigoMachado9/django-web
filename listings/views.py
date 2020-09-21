@@ -13,7 +13,7 @@ def index(request):
     listings = Listing.objects.all()        # result data's in postgresql
 
     # added paginator...
-    paginator = Paginator(listings, 3)
+    paginator = Paginator(listings, 2)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
