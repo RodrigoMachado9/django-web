@@ -9,7 +9,7 @@ def index(request):
     # return render(request, 'listings/listings.jinja2', {
     #     'name': 'Machado'
     # })
-    listings = Listing.objects.all()
+    listings = Listing.objects.all()        # find data's in postgresql
     context = {
         "listings": listings
     }
