@@ -43,6 +43,8 @@ def listing(request, listing_id):
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
 
+## todo - refactoring  this here  :*)
+
     # keywords
     if 'keywords' in request.GET:
         keywords = request.GET["keywords"]
@@ -55,6 +57,11 @@ def search(request):
         if city:
             queryset_list = queryset_list.filter(city__iexact=city)
 
+    # city
+    if 'state' in request.GET:
+        state = request.GET["state"]
+        if state:
+            queryset_list = queryset_list.filter(state__iexact=state)  # fixme, attributes;
 
     context = {
         "state_choice": states,
