@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import Paginator, EmptyPage
-from .choices import price, states, bedroom
+from .choices import _price, _states, _bedroom
 
 
 # Create your views here.
@@ -43,7 +43,7 @@ def listing(request, listing_id):
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
 
-## todo - refactoring  this here  :*)
+    ## todo - refactoring  this here  :*)
 
     # keywords
     if 'keywords' in request.GET:
@@ -57,16 +57,29 @@ def search(request):
         if city:
             queryset_list = queryset_list.filter(city__iexact=city)
 
-    # city
+    # state
     if 'state' in request.GET:
         state = request.GET["state"]
         if state:
             queryset_list = queryset_list.filter(state__iexact=state)  # fixme, attributes;
 
+    # bedrooms
+    if 'bedrooms' in request.GET:
+        bedrooms = request.GET["bedrooms"]
+        if bedrooms:
+            queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)  # fixme, less than or equal
+
+    # price
+    if 'price' in request.GET:
+        price = request.GET["price"]
+        if price:
+                queryset_list = queryset_list.filter(price__lte=price)  # fixme, less than or equal
+
+
     context = {
-        "state_choice": states,
-        "price_choice": price,
-        "bedroom_choice": bedroom,
+        "state_choice": _states,
+        "price_choice": _price,
+        "bedroom_choice": _bedroom,
         "listings": queryset_list
     }
 
