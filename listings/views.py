@@ -41,17 +41,32 @@ def listing(request, listing_id):
 
 
 def search(request):
+    queryset_list = Listing.objects.order_by('-list_date')
+
+    # keywords
+    if 'keywords' in request.GET:
+        keywords = request.GET["keywords"]
+        if keywords:
+            queryset_list = queryset_list.filter(description__icontains=keywords)
+
+    # city
+    if 'city' in request.GET:
+        city = request.GET["city"]
+        if city:
+            queryset_list = queryset_list.filter(city__iexact=city)
+
+
     context = {
         "state_choice": states,
         "price_choice": price,
-        "bedroom_choice": bedroom
+        "bedroom_choice": bedroom,
+        "listings": queryset_list
     }
 
     return render(request, 'listings/search.jinja2', context)
 
 
 ### paginator -  filters
-
 
 def paginator_order_by(order: str):
     # result data's in postgresql
