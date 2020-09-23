@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import Paginator, EmptyPage
+from .choices import price, states, bedroom
 
 
 # Create your views here.
@@ -10,7 +11,6 @@ def index(request):
     # return render(request, 'listings/listings.jinja2', {
     #     'name': 'Machado'
     # })
-
 
     # listings = paginator_order_by('-list_date')     # fixme :)
     listings = paginator_order_by_with_filter('-list_date', is_published=True)  # fixme :)
@@ -41,7 +41,13 @@ def listing(request, listing_id):
 
 
 def search(request):
-    return render(request, 'listings/search.html')
+    context = {
+        "state_choice": states,
+        "price_choice": price,
+        "bedroom_choice": bedroom
+    }
+
+    return render(request, 'listings/search.jinja2', context)
 
 
 ### paginator -  filters

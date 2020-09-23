@@ -2,6 +2,7 @@ from django.shortcuts import render
 # from django.http import HttpResponse
 from listings.models import Listing
 from realtors.models import Realtor
+from listings.choices import price, states, bedroom
 
 
 # Create your views here.
@@ -11,7 +12,10 @@ def index(request):
     listings = Listing.objects.order_by("-list_date").filter(is_published=True)[:3]
 
     context = {
-        "listings": listings
+        "listings": listings,
+        "state_choice": states,
+        "price_choice": price,
+        "bedroom_choice": bedroom
     }
 
     return render(request, 'pages/index.jinja2', context)
