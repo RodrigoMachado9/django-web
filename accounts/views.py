@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -7,6 +7,7 @@ def register(requests):
     if requests.method == 'POST':
         print('SUBMITTED REG')
         # Register User
+        messages.error(requests, 'Testing error messge')
         return redirect('register')
     return render(requests, 'accounts/register.jinja2')
 
