@@ -4,10 +4,17 @@ from django.shortcuts import render, redirect
 # Create your views here.
 
 def register(requests):
+    if requests.method == 'POST':
+        print('SUBMITTED REG')
+        # Register User
+        return redirect('register')
     return render(requests, 'accounts/register.jinja2')
 
 
 def login(requests):
+    if requests.method == 'POST':
+        # Login User
+        return redirect('login')
     return render(requests, 'accounts/login.jinja2')
 
 
