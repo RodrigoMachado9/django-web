@@ -80,7 +80,8 @@ def search(request):
         "state_choice": _states,
         "price_choice": _price,
         "bedroom_choice": _bedroom,
-        "listings": queryset_list
+        "listings": queryset_list,
+        "values": request.GET
     }
 
     return render(request, 'listings/search.jinja2', context)
