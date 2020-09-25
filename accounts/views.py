@@ -70,6 +70,11 @@ def login(requests):
 
 
 def logout(requests):
+    if requests.method == 'POST':
+        auth.logout(requests)
+        messages.success(requests, 'You are now logged out')
+        return redirect('index')
+
     return redirect(requests, 'index.jinja2')
 
 
