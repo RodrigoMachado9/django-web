@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
-
+from contacts.models import Contact
 
 # Create your views here.
 
@@ -79,4 +79,9 @@ def logout(requests):
 
 
 def dashboard(requests):
-    return render(requests, 'accounts/dashboard.jinja2')
+    user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=requests.user.id)
+
+    context = {
+        "contacts": user_contacts
+    }
+    return render(requests, 'accounts/dashboard.jinja2', context)
