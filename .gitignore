@@ -6,7 +6,7 @@
 /static
 # idea
 .idea/
-.notes/
+.notes.md
 ### Django ###
 *.log
 *.pot
