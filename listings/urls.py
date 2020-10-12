@@ -4,6 +4,6 @@ from . import views             # chamada para a rota da view.
 # /listings/23
 urlpatterns = [
     path('', views.index, name='listings'),
-    path('<int:listing_id>', views.listing, name='listing'),
+    path('<int:listing_id>', views.listing, name='listing'),        #  contact realtor [make an inquiry]
     path('search', views.search, name='search')
 ]
