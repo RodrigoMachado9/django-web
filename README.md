@@ -1,4 +1,4 @@
-# in construction...  A simple site to advertise properties!
+# in construction...  a simple website to announce real estate!
 
 
 ````
