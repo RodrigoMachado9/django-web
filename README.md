@@ -1,4 +1,5 @@
-# in construction... 
+# in construction...  A simple site to advertise properties!
+
 
 ````
     pip install psycopg2-binary | psycopg2
