@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # fixme 
 # SECRET_KEY = os.environ.get("SECRET_KEY")
 SECRET_KEY = 'ubsq#xai!qa_!dsi=61a&mbqn)lxtl*x48$fi0v-l^k%0z1^bn'
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -37,6 +36,7 @@ INSTALLED_APPS = [
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
     'contacts.apps.ContactsConfig',
+    # 'yam.apps.YamConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,20 +81,20 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        # 'NAME': BASE_DIR + '/db.sqlite3', fixme - migrate.
-        "NAME": os.environ.get("DB_NAME"),
+        # "ENGINE": "django.db.backends.postgresql",
+        # 'ENGINE': BASE_DIR + '/db.sqlite3',
+        'ENGINE': "django.db.backends.sqlite3",  # fixme - migrate.
+        'NAME': BASE_DIR + 'db.sqlite3',
+        # "NAME": os.environ.get("DB_NAME"),
         "USER": os.environ.get("DB_USER"),
         "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": os.environ.get("DB_HOST")
 
     }
 }
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -138,7 +138,6 @@ STATICFILES_DIRS = [
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
 
 # Messages
 from django.contrib.messages import constants as messages

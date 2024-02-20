@@ -16,3 +16,12 @@
     digital ocean
 ```
 
+
+##
+python manage.py migrate
+python manage.py createsuperuser
+
+superuser = ZAA5udn/WB
+
+
+django-admin startproject nome_do_projeto

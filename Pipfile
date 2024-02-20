@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+asgiref = "==3.2.10"
+astroid = "==2.4.2"
+autopep8 = "==1.5.4"
+django = "==3.1.13"
+django-pdb = "==0.6.2"
+isort = "==5.5.3"
+lazy-object-proxy = "==1.4.3"
+mccabe = "==0.6.1"
+pillow = "==8.3.2"
+psycopg2-binary = "==2.8.6"
+pycodestyle = "==2.6.0"
+pylint = "==2.6.0"
+pylint-django = "==2.3.0"
+pylint-plugin-utils = "==0.6"
+pytz = "==2020.1"
+six = "==1.15.0"
+sqlparse = "==0.3.1"
+toml = "==0.10.1"
+typed-ast = "==1.4.1"
+wrapt = "==1.12.1"
+livesync = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
